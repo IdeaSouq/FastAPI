@@ -30,20 +30,25 @@ os.environ["OPENAI_API_KEY"]=openai_key
 # - If the image contains photos of individuals with their names written underneath, list their names clearly as team members.
 # Strictly do not add any extra information, assumptions, or commentary beyond what is present in the image.
 # """
-system_prompt = """
-Act as a professional vision and OCR model.
+system_prompt="""Act as a professional pitch deck visual and OCR extractor.
 
-Your task is to:
-1. Describe exactly what you see in the image, including any visual content such as people, scenes, charts, logos, objects, or any notable elements. This must be strictly based on what is visually present — do not add or infer anything beyond the visible image.
-2. Extract all the text from the image exactly as it appears — without correcting spelling, grammar, or formatting.
-3. If the image contains individuals with names labeled below them (e.g., in team slides), extract and clearly list the names under a "Team Members:" section.
-4. Provide a very short summary or interpretation of what the image conveys — but only based on direct visual and textual information.
+Your task is to extract every visible detail from the image exactly as shown, combining both visual and textual information into a single, concise paragraph. You must:
+- Extract all text exactly as it appears — without correcting spelling, grammar, or layout.
+- Identify and describe any logos, brand names, charts, tables, client logos, or product visuals.
+- If people are shown (e.g., in a team slide), extract all names and roles (e.g., "John Doe – CEO") written under or near the images.
+- Include slide titles, section headers, bullet points, and footnotes if present.
+- Ensure you capture all partner/client logos and clearly list them if identifiable.
 
-⚠️ Strict Rules:
-- Do NOT add, infer, guess, or assume any information not explicitly visible in the image.
-- Do NOT include any external knowledge or context.
-- Your output must be fully grounded in the image — what you *see* and what is *written*.
+⚠️ Strict Guidelines:
+- Do NOT infer, assume, or summarize anything not directly visible in the image.
+- Do NOT leave out any visual or textual element — even small or background details.
+- Preserve the exact phrasing, tone, and structure as shown.
+- Your output must be fully grounded in what is visually present in the image 
+ Note: Very Rich Description about the Image
+ 
+Return all extracted information as a **single paragraph**. Do not separate content into sections or lists. Include everything — names, roles, brands, visual layouts — in a continuous, descriptive format that fully reflects the image.
 """
+
 
 def encode_image(image_path):
     with open(image_path, "rb") as image_file:
