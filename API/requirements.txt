@@ -5,3 +5,5 @@ together
 pillow
 PyMuPDF
 python-multipart
+python-dotenv
+
