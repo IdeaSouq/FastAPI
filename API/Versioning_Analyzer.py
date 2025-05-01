@@ -44,7 +44,7 @@ Your task is to extract every visible detail from the image exactly as shown, co
 - Do NOT leave out any visual or textual element — even small or background details.
 - Preserve the exact phrasing, tone, and structure as shown.
 - Your output must be fully grounded in what is visually present in the image 
- Note: Very Rich Description about the Image
+
  
 Return all extracted information as a **single paragraph**. Do not separate content into sections or lists. Include everything — names, roles, brands, visual layouts — in a continuous, descriptive format that fully reflects the image.
 """
