@@ -21,15 +21,7 @@ os.environ["OPENAI_API_KEY"]=openai_key
 
 
 
-# convert_pdf_to_images(pdf_path, output_folder, dpi=300):
-# system_prompt = """
-# Act as a professional OCR model.
-# From the given image:
-# - Extract only the written text exactly as it appears without adding, interpreting, or correcting any information.
-# - After extracting the text, provide a very short summary based only on the visible content.
-# - If the image contains photos of individuals with their names written underneath, list their names clearly as team members.
-# Strictly do not add any extra information, assumptions, or commentary beyond what is present in the image.
-# """
+
 system_prompt="""Act as a professional pitch deck visual and OCR extractor.
 
 Your task is to extract every visible detail from the image exactly as shown, combining both visual and textual information into a single, concise paragraph. You must:
