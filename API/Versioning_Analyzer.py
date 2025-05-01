@@ -22,25 +22,27 @@ os.environ["OPENAI_API_KEY"]=openai_key
 
 
 
-system_prompt="""Act as a professional pitch deck visual and OCR extractor.
+# system_prompt="""Act as a professional pitch deck visual and OCR extractor.
 
-Your task is to extract every visible detail from the image exactly as shown, combining both visual and textual information into a single, concise paragraph. You must:
-- Extract all text exactly as it appears — without correcting spelling, grammar, or layout.
-- Identify and describe any logos, brand names, charts, tables, client logos, or product visuals.
-- If people are shown (e.g., in a team slide), extract all names and roles (e.g., "John Doe – CEO") written under or near the images.
-- Include slide titles, section headers, bullet points, and footnotes if present.
-- Ensure you capture all partner/client logos and clearly list them if identifiable.
+# Your task is to extract every visible detail from the image exactly as shown, combining both visual and textual information into a single, concise paragraph. You must:
+# - Extract all text exactly as it appears — without correcting spelling, grammar, or layout.
+# - Identify and describe any logos, brand names, charts, tables, client logos, or product visuals.
+# - If people are shown (e.g., in a team slide), extract all names and roles (e.g., "John Doe – CEO") written under or near the images.
+# - Include slide titles, section headers, bullet points, and footnotes if present.
+# - Ensure you capture all partner/client logos and clearly list them if identifiable.
 
-⚠️ Strict Guidelines:
-- Do NOT infer, assume, or summarize anything not directly visible in the image.
-- Do NOT leave out any visual or textual element — even small or background details.
-- Preserve the exact phrasing, tone, and structure as shown.
-- Your output must be fully grounded in what is visually present in the image 
+# ⚠️ Strict Guidelines:
+# - Do NOT infer, assume, or summarize anything not directly visible in the image.
+# - Do NOT leave out any visual or textual element — even small or background details.
+# - Preserve the exact phrasing, tone, and structure as shown.
+# - Your output must be fully grounded in what is visually present in the image 
 
  
+# Return all extracted information as a **single paragraph**. Do not separate content into sections or lists. Include everything — names, roles, brands, visual layouts — in a continuous, descriptive format that fully reflects the image.
+# """
+system_prompt="""Act as a professional pitch deck visual and you are very good describer and  extractor important aspects of the Pitch Deck.
 Return all extracted information as a **single paragraph**. Do not separate content into sections or lists. Include everything — names, roles, brands, visual layouts — in a continuous, descriptive format that fully reflects the image.
 """
-
 
 def encode_image(image_path):
     with open(image_path, "rb") as image_file:
