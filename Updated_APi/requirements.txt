@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+openai
+together
+pillow
+PyMuPDF
+python-multipart
+tavily
+python-dotenv
+langchain
+langchain-core
+langchain-openai
